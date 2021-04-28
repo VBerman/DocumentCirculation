@@ -1,0 +1,51 @@
+﻿<Page x:Class="DocumentCirculation.Pages.DocumentAddPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DocumentCirculation.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DocumentAddPage"
+      xmlns:Helpers="clr-namespace:DocumentCirculation.Helpers"
+      DataContext="{Binding Source={x:Static Helpers:ViewModel.Instanse}}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
+            <TextBlock Text="Current directory/file:" Margin="0 0 15 0"/>
+            <TextBox Text="{Binding DocumentAddViewModel.FolderStorage.Path}" Width="500"/>
+            <Button Content="..." Width="20" Height="20" Background="White" Command="{Binding DocumentAddViewModel.ChooseFile}"/>
+            <CheckBox Content="Select one file" VerticalAlignment="Center" IsChecked="{Binding DocumentAddViewModel.IsOneFile}"/>
+        </StackPanel>
+        <TreeView Grid.Row="1" ItemsSource="{Binding DocumentAddViewModel.FolderStorage.Files}" SelectedItemChanged="TreeView_SelectedItemChanged">
+            <TreeView.ItemTemplate>
+                
+                <HierarchicalDataTemplate ItemsSource="{Binding Path=Files}" >
+                    <Grid Width="250">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="9*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding ShortPath}" Grid.Column="0"/>
+                        <CheckBox IsChecked="{Binding IsCurrent}" Grid.Column="1"/>
+                    </Grid>
+                    
+                    
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+            
+        </TreeView>
+        <DocumentViewer Grid.Row="1" Grid.Column="1" Name="dv"/>
+        <MediaElement Source="/Resources/Loader.gif" Name="Loader" Grid.RowSpan="6" Grid.ColumnSpan="3" Width="100"  LoadedBehavior="Play" Visibility="Visible" Stretch="Uniform"/>
+    </Grid>
+</Page>
