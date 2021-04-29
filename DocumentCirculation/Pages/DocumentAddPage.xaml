@@ -46,6 +46,8 @@
             
         </TreeView>
         <DocumentViewer Grid.Row="1" Grid.Column="1" Name="dv"/>
-        <MediaElement Source="/Resources/Loader.gif" Name="Loader" Grid.RowSpan="6" Grid.ColumnSpan="3" Width="100"  LoadedBehavior="Play" Visibility="Visible" Stretch="Uniform"/>
+        <Button Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" Content="Load files" Command="DocumentAddViewModel.LoadFiles"/>
+        <!--add loader-->
+        <!--<MediaElement Source="C:\Users\SVO\source\repos\DocumentCirculation\DocumentCirculation\bin\Debug\Resources\Loader.gif" Name="Loader" Grid.RowSpan="6" Grid.ColumnSpan="3" Width="100"  LoadedBehavior="Play" Visibility="Visible" Stretch="Uniform"/>-->
     </Grid>
 </Page>

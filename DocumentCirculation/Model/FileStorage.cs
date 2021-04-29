@@ -103,7 +103,20 @@ namespace DocumentCirculation.Model
 
         private void LoadFiles()
         {
-            
+            foreach (var item in Files)
+            {
+                item.LoadFiles();
+                if (!item.IsFolder)
+                {
+                    var loadFile = new Document();
+                    loadFile.Name = System.IO.Path.GetFileNameWithoutExtension(Path);
+                    loadFile.FileRepository = 
+                    loadFile.LastModified = DateTime.Now();
+                    DBController.Context.Document.Add(laodFile);
+                }
+            }   
         }
+
+        public int CountOpen { get; set; }
     }
 }

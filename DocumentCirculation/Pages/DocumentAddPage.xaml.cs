@@ -33,7 +33,9 @@ namespace DocumentCirculation.Pages
             var selectedItem = ((sender as TreeView).SelectedItem as FileStorage);
             if (!selectedItem.IsFolder)
             {
-                dv.Document = Helpers.Converter.ConvertWordDocToXPSDoc(selectedItem.Path);
+                
+                dv.Document = Helpers.Converter.ConvertWordDocToXPSDoc(selectedItem.Path, selectedItem.CountOpen += 1);
+                selectedItem.CountOpen += 1;
             }
         }
     }

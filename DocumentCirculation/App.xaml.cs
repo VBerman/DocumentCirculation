@@ -17,6 +17,7 @@ namespace DocumentCirculation
         public App()
         {
             Directory.Delete(Helpers.Converter.GetXPSRepositoryPath(), true);
+
             Directory.CreateDirectory(Helpers.Converter.GetXPSRepositoryPath());
         }
     }
