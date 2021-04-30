@@ -13,5 +13,40 @@ namespace DocumentCirculation.Helpers
         {
             return Directory.GetCurrentDirectory() + "\\XPSDocuments\\";
         }
+
+        public static string GetWordRepositoryPath()
+        {
+            return Directory.GetCurrentDirectory() + "\\WordDocuments\\";
+        }
+
+        public static string GetFileWordPathFromName(string name)
+        {
+            return GetWordRepositoryPath() + name + ".docx";
+        }
+
+
+        public static void CreateRepositoryPaths()
+        {
+            CreateRepositoryPath(GetXPSRepositoryPath());
+
+            CreateRepositoryPath(GetWordRepositoryPath());
+
+        }
+        public static void CreateRepositoryPath(string path)
+        {
+            if (Directory.Exists(path))
+            {
+                Directory.Delete(path, true);
+
+            }
+
+
+            Directory.CreateDirectory(path);
+
+
+        }
+
+
+
     }
 }

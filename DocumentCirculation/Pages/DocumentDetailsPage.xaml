@@ -6,9 +6,18 @@
       xmlns:local="clr-namespace:DocumentCirculation.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="DocumentDetailsPage">
+      Title="DocumentDetailsPage"
+      xmlns:Helpers="clr-namespace:DocumentCirculation.Helpers"
+      DataContext="{Binding Source={x:Static Helpers:ViewModel.Instanse}}">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Content="Edit file" Grid.Row="0" Click="Button_Click" />
+        <Button Content="Save changes" Grid.Row="1" Click="Button_Click_1"/>
+        <DocumentViewer Grid.Row="2"  Name="dv"/>
     </Grid>
 </Page>

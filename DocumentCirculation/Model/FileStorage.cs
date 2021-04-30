@@ -127,6 +127,5 @@ namespace DocumentCirculation.Model
             }   
         }
 
-        public int CountOpen { get; set; }
     }
 }

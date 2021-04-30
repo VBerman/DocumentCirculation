@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DocumentCirculation.Helpers;
+using DocumentCirculation.Model;
+using DocumentCirculation.Model.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,5 +32,21 @@ namespace DocumentCirculation.Pages
         {
             NavigationService.GoBack();
         }
-    }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DocumentDetailsPage());
+        }
+
+        private void DataGrid_Selected(object sender, RoutedEventArgs e)
+        {
+            dv.Document = null;
+            var selectedItem = ((sender as DataGrid).SelectedItem as Document);
+
+            (DataContext as ApplicationViewModel).DocumentListViewModel.CurrentDocument = selectedItem;
+
+            dv.Document = Converter.ConvertWordDocToXPSDoc((DataContext as ApplicationViewModel).DocumentListViewModel.CurrentDocument.Path);
+
+        }
+    }   
 }

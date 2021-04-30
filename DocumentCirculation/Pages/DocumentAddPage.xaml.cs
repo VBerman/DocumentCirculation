@@ -34,8 +34,8 @@ namespace DocumentCirculation.Pages
             if (!selectedItem.IsFolder)
             {
                 
-                dv.Document = Helpers.Converter.ConvertWordDocToXPSDoc(selectedItem.Path, selectedItem.CountOpen += 1);
-                selectedItem.CountOpen += 1;
+                dv.Document = Helpers.Converter.ConvertWordDocToXPSDoc(selectedItem.Path);
+              
             }
         }
 

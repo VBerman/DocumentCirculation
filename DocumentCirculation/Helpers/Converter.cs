@@ -12,7 +12,7 @@ namespace DocumentCirculation.Helpers
 {
     class Converter
     {
-        public static FixedDocumentSequence ConvertWordDocToXPSDoc(string wordDocName, int countOpen)
+        public static FixedDocumentSequence ConvertWordDocToXPSDoc(string wordDocName)
         {
             var wordApplication = new Application();
             wordApplication.Documents.Add(wordDocName);
@@ -24,14 +24,19 @@ namespace DocumentCirculation.Helpers
 
 
 
-                var xpsDocName = PathCreator.GetXPSRepositoryPath() + Path.GetFileNameWithoutExtension(wordDocName) + countOpen.ToString() + ".xps";
+                var xpsDocName = PathCreator.GetXPSRepositoryPath() + Path.GetFileNameWithoutExtension(wordDocName) + ".xps";
 
-                doc.SaveAs(xpsDocName, WdSaveFormat.wdFormatXPS);
+
+                if (!File.Exists(xpsDocName))
+                {
+                    doc.SaveAs(xpsDocName, WdSaveFormat.wdFormatXPS);
+
+                }
 
                 wordApplication.Quit();
 
 
-                XpsDocument xpsDoc = new XpsDocument(xpsDocName, System.IO.FileAccess.Read);
+                XpsDocument xpsDoc = new XpsDocument(xpsDocName, FileAccess.Read);
 
                 return xpsDoc.GetFixedDocumentSequence();
             }
@@ -46,6 +51,6 @@ namespace DocumentCirculation.Helpers
         }
 
 
-        
+
     }
 }

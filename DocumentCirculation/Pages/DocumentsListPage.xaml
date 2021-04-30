@@ -11,12 +11,22 @@
       DataContext="{Binding Source={x:Static Helpers:ViewModel.Instanse}}">
 
     <Grid>
-        <StackPanel>
-            <Button Content="Back" Click="Button_Click"/>
-            <DataGrid ItemsSource="">
-
-            </DataGrid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Content="Back" Click="Button_Click" />
+            <Button Content="View Details" Click="Button_Click_1"/>
         </StackPanel>
+        <DataGrid ItemsSource="{Binding DocumentListViewModel.DocumentsList}" ColumnWidth="*" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="DataGrid_Selected" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="LastModified" Binding="{Binding LastModified}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DocumentViewer Grid.Row="2"  Name="dv"/>
+        
     </Grid>
 </Page>

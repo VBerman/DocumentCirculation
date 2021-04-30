@@ -140,6 +140,7 @@
     <Compile Include="Model\Document.cs" />
     <Compile Include="Model\FileStorage.cs" />
     <Compile Include="Model\DatabaseContext.cs" />
+    <Compile Include="Model\PartialModel\Document.cs" />
     <Compile Include="Model\View\ApplicationViewModel.cs" />
     <Compile Include="Model\View\DocumentAddViewModel.cs" />
     <Compile Include="Model\View\DocumentListViewModel.cs" />
