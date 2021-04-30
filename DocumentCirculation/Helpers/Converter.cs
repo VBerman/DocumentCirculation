@@ -24,7 +24,7 @@ namespace DocumentCirculation.Helpers
 
 
 
-                var xpsDocName = GetXPSRepositoryPath() + Path.GetFileNameWithoutExtension(wordDocName) + countOpen.ToString() + ".xps";
+                var xpsDocName = PathCreator.GetXPSRepositoryPath() + Path.GetFileNameWithoutExtension(wordDocName) + countOpen.ToString() + ".xps";
 
                 doc.SaveAs(xpsDocName, WdSaveFormat.wdFormatXPS);
 
@@ -40,14 +40,12 @@ namespace DocumentCirculation.Helpers
 
 
             }
-        
+
+            doc.Close();
             return null;
         }
 
 
-        public static string GetXPSRepositoryPath()
-        {
-            return Directory.GetCurrentDirectory() + "\\XPSDocuments\\";
-        }
+        
     }
 }

@@ -9,7 +9,6 @@ namespace DocumentCirculation.Model
     [Table("Document")]
     public partial class Document
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Required]

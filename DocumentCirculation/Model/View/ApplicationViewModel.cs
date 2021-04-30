@@ -12,17 +12,32 @@ namespace DocumentCirculation.Model.View
         public ApplicationViewModel()
         {
             DocumentAddViewModel = new DocumentAddViewModel();
+            DocumentListViewModel = new DocumentListViewModel();
         }
         private DocumentAddViewModel documentAddViewModel;
 
         public DocumentAddViewModel DocumentAddViewModel
         {
             get { return documentAddViewModel; }
-            set { documentAddViewModel = value;
+            set
+            {
+                documentAddViewModel = value;
                 OnPropertyChanged();
             }
         }
-        
+
+        private DocumentListViewModel documentListViewModel;
+
+        public DocumentListViewModel DocumentListViewModel
+        {
+            get { return documentListViewModel; }
+            set
+            {
+                documentListViewModel = value;
+                OnPropertyChanged();
+            }
+        }
+
 
     }
 }

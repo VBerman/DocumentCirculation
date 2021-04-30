@@ -101,18 +101,28 @@ namespace DocumentCirculation.Model
             set { isFolder = value;}
         }
 
-        private void LoadFiles()
+        public void LoadFiles()
         {
             foreach (var item in Files)
             {
-                item.LoadFiles();
+                
                 if (!item.IsFolder)
                 {
-                    var loadFile = new Document();
-                    loadFile.Name = System.IO.Path.GetFileNameWithoutExtension(Path);
-                    loadFile.FileRepository = 
-                    loadFile.LastModified = DateTime.Now();
-                    DBController.Context.Document.Add(laodFile);
+                    if (item.IsCurrent)
+                    {
+                        var loadFile = new Document
+                        {
+                            Name = System.IO.Path.GetFileNameWithoutExtension(item.Path),
+                            FileRepository = File.ReadAllBytes(item.Path),
+                            LastModified = DateTime.Now
+                        };
+                        DBController.Context.Document.Add(loadFile);
+                    }
+                    
+                }
+                else
+                {
+                    item.LoadFiles();
                 }
             }   
         }

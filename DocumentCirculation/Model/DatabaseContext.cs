@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DocumentCirculation.Model
 {
-    public partial class DatabaseContext : DbContext
+    public partial class DatabaseContext: DbContext
     {
         public DatabaseContext()
             : base("name=DatabaseContext")

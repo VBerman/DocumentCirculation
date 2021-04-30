@@ -52,7 +52,7 @@ namespace DocumentCirculation.Model.View
                             {
 
                                 FolderStorage.Path = dialog.FileName;
-                                
+
 
                             }
                         }
@@ -77,8 +77,16 @@ namespace DocumentCirculation.Model.View
         {
             get
             {
-                
-                return loadFiles;
+                return loadFiles ?? (
+                    loadFiles = new Command(obj =>
+                    {
+                        FolderStorage.LoadFiles();
+                        DBController.Context.SaveChanges();
+
+                    }));
+
+
+
             }
         }
 

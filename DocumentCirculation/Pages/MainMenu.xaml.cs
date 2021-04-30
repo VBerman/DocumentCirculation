@@ -16,18 +16,25 @@ using System.Windows.Shapes;
 namespace DocumentCirculation.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для DocumentsListPage.xaml
+    /// Interaction logic for MainMenu.xaml
     /// </summary>
-    public partial class DocumentsListPage : Page
+    public partial class MainMenu : Page
     {
-        public DocumentsListPage()
+        public MainMenu()
         {
             InitializeComponent();
         }
 
+        //need fix. Navigation service move to application view model.
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new DocumentAddPage());
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DocumentsListPage());
         }
     }
 }

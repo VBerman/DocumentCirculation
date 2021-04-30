@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentCirculation.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -16,9 +17,9 @@ namespace DocumentCirculation
     {
         public App()
         {
-            Directory.Delete(Helpers.Converter.GetXPSRepositoryPath(), true);
+            Directory.Delete(PathCreator.GetXPSRepositoryPath(), true);
 
-            Directory.CreateDirectory(Helpers.Converter.GetXPSRepositoryPath());
+            Directory.CreateDirectory(PathCreator.GetXPSRepositoryPath());
         }
     }
 }

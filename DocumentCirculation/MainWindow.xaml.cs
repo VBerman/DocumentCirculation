@@ -24,7 +24,7 @@ namespace DocumentCirculation
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new AuthorizationPage());
+            MainFrame.Navigate(new MainMenu());
         }
     }
 }
