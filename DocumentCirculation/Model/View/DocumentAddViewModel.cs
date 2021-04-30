@@ -1,4 +1,5 @@
 ﻿using DocumentCirculation.Helpers;
+using DocumentCirculation.Pages;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
@@ -88,6 +89,17 @@ namespace DocumentCirculation.Model.View
 
 
             }
+        }
+        private DocumentAddPage documentAddPage;
+
+        public DocumentAddPage DocumentAddPage
+        {
+            get
+            {
+                documentAddPage = documentAddPage ?? new DocumentAddPage();
+                return documentAddPage;
+            }
+            set { documentAddPage = value; }
         }
 
     }

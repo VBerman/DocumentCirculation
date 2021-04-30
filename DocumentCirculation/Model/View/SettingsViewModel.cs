@@ -16,6 +16,7 @@ namespace DocumentCirculation.Model.View
             set
             {
                 Properties.Settings.Default.IsShowPreview = value;
+                
                 Properties.Settings.Default.Save();
 
             }

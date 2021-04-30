@@ -39,9 +39,6 @@ namespace DocumentCirculation.Pages
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.GoBack();
-        }
+       
     }
 }

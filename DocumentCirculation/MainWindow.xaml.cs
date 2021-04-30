@@ -1,4 +1,5 @@
-﻿using DocumentCirculation.Pages;
+﻿using DocumentCirculation.Helpers;
+using DocumentCirculation.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace DocumentCirculation
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new AuthorizationPage());
+            MainFrame.Navigate(ViewModel.Instanse.AuthorizationViewModel.AuthorizationPage);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace DocumentCirculation
         public App()
         {
             PathCreator.CreateRepositoryPaths();
-
+            var mainWindow = ViewModel.Instanse.MainWindow;
         }
     }
 }

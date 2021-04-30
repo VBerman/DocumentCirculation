@@ -6,11 +6,13 @@
       xmlns:local="clr-namespace:DocumentCirculation.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainMenu">
+      Title="MainMenu"
+      xmlns:Helpers="clr-namespace:DocumentCirculation.Helpers"
+      DataContext="{Binding Source={x:Static Helpers:ViewModel.Instanse}}">
 
     <Grid>
         <StackPanel>
-            <Button Content="Add documents" Click="Button_Click"/>
+            <Button Content="Add documents" Command="{Binding MainMenuViewModel.NavigateDocumentAddPage}"/>
             <Button Content="Documents list" Click="Button_Click_1" Margin="0 15 0 0"/>
             <Button Content="Settings list" Click="Button_Click_2" Margin="0 15 0 0"/>
         </StackPanel>
