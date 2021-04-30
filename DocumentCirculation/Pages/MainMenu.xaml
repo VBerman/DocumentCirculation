@@ -12,6 +12,7 @@
         <StackPanel>
             <Button Content="Add documents" Click="Button_Click"/>
             <Button Content="Documents list" Click="Button_Click_1" Margin="0 15 0 0"/>
+            <Button Content="Settings list" Click="Button_Click_2" Margin="0 15 0 0"/>
         </StackPanel>
         
     </Grid>

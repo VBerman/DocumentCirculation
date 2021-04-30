@@ -13,6 +13,7 @@ namespace DocumentCirculation.Model.View
         {
             DocumentAddViewModel = new DocumentAddViewModel();
             DocumentListViewModel = new DocumentListViewModel();
+            SettingsViewModel = new SettingsViewModel();
         }
         private DocumentAddViewModel documentAddViewModel;
 
@@ -36,6 +37,14 @@ namespace DocumentCirculation.Model.View
                 documentListViewModel = value;
                 OnPropertyChanged();
             }
+        }
+
+        private SettingsViewModel settingsViewModel;
+
+        public SettingsViewModel SettingsViewModel
+        {
+            get { return settingsViewModel; }
+            set { settingsViewModel = value; }
         }
 
 

@@ -46,7 +46,7 @@ namespace DocumentCirculation.Pages
                 DBController.Context.SaveChanges();
 
             }
-            catch (Exception ex) 
+            catch (Exception) 
             {
             }
         }

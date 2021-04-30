@@ -45,7 +45,7 @@
             </TreeView.ItemTemplate>
             
         </TreeView>
-        <DocumentViewer Grid.Row="1" Grid.Column="1" Name="dv"/>
+        <DocumentViewer Grid.Row="1" Grid.Column="1" Name="dv" />
         <Button Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" Content="Load files" Command="{Binding DocumentAddViewModel.LoadFiles}"/>
         <Button Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" Content="Back" Click="Button_Click"/>
         <!--add loader-->

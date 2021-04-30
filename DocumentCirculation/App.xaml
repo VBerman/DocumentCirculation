@@ -2,7 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:DocumentCirculation"
-             StartupUri="MainWindow.xaml">
+             StartupUri="MainWindow.xaml"
+            xmlns:Settings="clr-namespace:DocumentCirculation.Model.View"
+
+            >
     <Application.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Height" Value="20"/>
@@ -24,6 +27,10 @@
         </Style>
         <Style TargetType="Page">
             <Setter Property="Margin" Value="15"/>
+        </Style>
+
+        <Style TargetType="DocumentViewer">
+            <Setter Property="Visibility" Value="{Binding Source={x:Static Settings:SettingsViewModel.ConverterShowPreview}}"/>
         </Style>
     </Application.Resources>
 </Application>

@@ -40,7 +40,7 @@ namespace DocumentCirculation.Helpers
 
                 return xpsDoc.GetFixedDocumentSequence();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
 

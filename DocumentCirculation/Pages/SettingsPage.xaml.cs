@@ -12,34 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DocumentCirculation.Model.View;
 
 namespace DocumentCirculation.Pages
 {
     /// <summary>
-    /// Interaction logic for MainMenu.xaml
+    /// Interaction logic for SettingsPage.xaml
     /// </summary>
-    public partial class MainMenu : Page
+    public partial class SettingsPage : Page
     {
-        public MainMenu()
+        public SettingsPage()
         {
             InitializeComponent();
         }
 
-        //need fix. Navigation service move to application view model.
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DocumentAddPage());
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new DocumentsListPage());
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new SettingsPage());
+            NavigationService.GoBack();
         }
     }
 }
